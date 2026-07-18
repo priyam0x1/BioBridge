@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BioBridge - Organisation</title>
+  </head>
+  <body>
+    <h1>Hello from organisation</h1>
+
+    <h2>All donor</h2>
+    <ul>
+        <% for(let donor of allDonor) { %> 
+        <li><a href="/org/<%= donor._id %>"><%= donor.name %></a></li>
+        <% } %>
+    </ul>
+  </body>
+</html>
