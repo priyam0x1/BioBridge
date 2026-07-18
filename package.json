@@ -1,0 +1,25 @@
+{
+  "name": "biobridge",
+  "version": "1.0.0",
+  "description": "Starting Date : 18-07-2026",
+  "homepage": "https://github.com/priyam0x1/BioBridge#readme",
+  "bugs": {
+    "url": "https://github.com/priyam0x1/BioBridge/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyam0x1/BioBridge.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.7.4"
+  }
+}
