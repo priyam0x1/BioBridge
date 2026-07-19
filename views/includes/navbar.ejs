@@ -1,0 +1,38 @@
+<nav>
+  <div class="navbar">
+    <div class="nav_logo">
+      <div class="nav_img">
+        <img
+          src="https://media.istockphoto.com/id/1077130198/vector/cross-or-plus-with-letter-o-logo-icon-design.jpg?s=612x612&w=0&k=20&c=7zl7Fddbrh3s9t697b7wYcJTtgGOyHAY--uE8yxjHdc="
+          height="50px"
+        />
+      </div>
+      <div class="brand_name">
+        <h6>BioBridge</h6>
+        <p>BioBridge - The LifeSaver</p>
+      </div>
+    </div>
+    <div class="nav_option">
+      <a
+        href="http://localhost:8080/public"
+        class="<%= currentPage === 'public' ? 'active' : '' %>"
+        >Public Site</a
+      >
+      <a
+        href="http://localhost:8080/public/register"
+        class="<%= currentPage === 'donor' ? 'active' : '' %>"
+        >Donor</a
+      >
+      <a
+        href="http://localhost:8080/lab"
+        class="<%= currentPage === 'lab' ? 'active' : '' %>"
+        >Laboratory</a
+      >
+      <a
+        href="http://localhost:8080/org"
+        class="<%= currentPage === 'org' ? 'active' : '' %>"
+        >Organisation</a
+      >
+    </div>
+  </div>
+</nav>

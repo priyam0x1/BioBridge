@@ -1,71 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Donor Registration</title>
-  </head>
-  <body>
-    <h1>Donor Registration Form</h1>
-    <form method="POST" action="/org">
-      <input placeholder="Full Name" name="donor[name]" />
-      <br />
-      <br />
-      <input type="date" name="donor[dob]" />
-      <br />
-      <br />
-      <input type="number" placeholder="Phone Number" name="donor[phone]" />
-      <br />
-      <br />
-      <input type="email" placeholder="Email" name="donor[email]" />
-      <br />
-      <br />
-      <textarea
-        placeholder="Delivery address kit"
-        name="donor[address]"
-      ></textarea>
-      <br />
-      <br />
-      <select name="donor[blood_grp]">
-        <option>Not Sure</option>
-        <option>A+</option>
-        <option>B+</option>
-        <option>O+</option>
-        <option>O-</option>
-      </select>
-      <br />
-      <br />
-      <select name="donor[gender]">
-        <option>Male</option>
-        <option>Female</option>
-        <option>Other</option>
-        <option>Prefer not to say</option>
-      </select>
-      <br />
-      <br />
-      <textarea
-        placeholder="any existing medical condition"
-        name="donor[med_con]"
-      ></textarea>
-      <br />
-      <br />
-      <input type="checkbox" id="first-chkbox" required />
-      <label for="first-chkbox"
-        >I consent to Sanjeevani storing my typing results and contacting me if
-        I am identified as a potential match. I understand my identity is never
-        shared with a hospital or patient without my separate consent at that
-        time.</label
-      >
-      <br />
-      <br />
-      <input type="checkbox" id="second-chkbox" required />
-      <label for="second-chkbox"
-        >I confirm the details above are accurate and I am eligible to donate as
-        per the guidelines shown.</label
-      >
-      <br />
-      <br />
-      <button type="submit">Submit & request kit</button>
-    </form>
-  </body>
-</html>
+<% layout("layouts/boilerplate.ejs") %>
+<body>
+  <h1>Donor Registration Form</h1>
+  <form method="POST" action="/org">
+    <input placeholder="Full Name" name="donor[name]" />
+    <br />
+    <br />
+    <input type="date" name="donor[dob]" />
+    <br />
+    <br />
+    <input type="number" placeholder="Phone Number" name="donor[phone]" />
+    <br />
+    <br />
+    <input type="email" placeholder="Email" name="donor[email]" />
+    <br />
+    <br />
+    <textarea
+      placeholder="Delivery address kit"
+      name="donor[address]"
+    ></textarea>
+    <br />
+    <br />
+    <select name="donor[blood_grp]">
+      <option>Not Sure</option>
+      <option>A+</option>
+      <option>B+</option>
+      <option>O+</option>
+      <option>O-</option>
+    </select>
+    <br />
+    <br />
+    <select name="donor[gender]">
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+      <option>Prefer not to say</option>
+    </select>
+    <br />
+    <br />
+    <textarea
+      placeholder="any existing medical condition"
+      name="donor[med_con]"
+    ></textarea>
+    <br />
+    <br />
+    <input type="checkbox" id="first-chkbox" required />
+    <label for="first-chkbox"
+      >I consent to Sanjeevani storing my typing results and contacting me if I
+      am identified as a potential match. I understand my identity is never
+      shared with a hospital or patient without my separate consent at that
+      time.</label
+    >
+    <br />
+    <br />
+    <input type="checkbox" id="second-chkbox" required />
+    <label for="second-chkbox"
+      >I confirm the details above are accurate and I am eligible to donate as
+      per the guidelines shown.</label
+    >
+    <br />
+    <br />
+    <button type="submit">Submit & request kit</button>
+  </form>
+</body>

@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test Result</title>
-  </head>
-  <body>
-    <form method="POST" action="/lab/<%=donor._id%>?_method=PUT">
-      <input value="<%=donor.name%>" readonly />
-      <input value="<%=donor.sample_id%>" readonly />
-      <h1>Enter Test Result</h1>
-      <input placeholder="HLA Typing" name="donor[HLA_type]" />
-      <select name="donor[blood_grp]">
-        <option>Not Provided</option>
-        <option>A+</option>
-        <option>B+</option>
-        <option>O+</option>
-        <option>O-</option>
-      </select>
-      <br />
-      <button type="submit">Enter</button>
-    </form>
-  </body>
-</html>
+<% layout("layouts/boilerplate.ejs") %>
+<body>
+  <form method="POST" action="/lab/<%=donor._id%>?_method=PUT">
+    <input value="<%=donor.name%>" readonly />
+    <input value="<%=donor.sample_id%>" readonly />
+    <h1>Enter Test Result</h1>
+    <input placeholder="HLA Typing" name="donor[HLA_type]" />
+    <select name="donor[blood_grp]">
+      <option>Not Provided</option>
+      <option>A+</option>
+      <option>B+</option>
+      <option>O+</option>
+      <option>O-</option>
+    </select>
+    <br />
+    <button type="submit">Enter</button>
+  </form>
+</body>

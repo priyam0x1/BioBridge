@@ -1,28 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BioBridge - <%= donor.name %></title>
-  </head>
-  <body>
-    <h1><%=donor.name%></h1>
-    <h1><%=donor.dob%></h1>
-    <h1><%=donor.phone%></h1>
-    <h1><%=donor.email%></h1>
-    <h1><%=donor.address%></h1>
-    <h1><%=donor.blood_grp%></h1>
-    <h1><%=donor.gender%></h1>
-    <h1><%=donor.med_con%></h1>
-    <h1><%=donor.received_date%></h1>
-    <h1><%=donor.test_date%></h1>
-    <h1><%=donor.status%></h1>
-    <h1><%=donor.HLA_type%></h1>
-    <h1><%=donor.sample_id%></h1>
-    <h1><%=donor.note_org%></h1>
+<% layout("layouts/boilerplate.ejs") %>
+<body>
+  <h1><%=donor.name%></h1>
+  <h1><%=donor.dob%></h1>
+  <h1><%=donor.phone%></h1>
+  <h1><%=donor.email%></h1>
+  <h1><%=donor.address%></h1>
+  <h1><%=donor.blood_grp%></h1>
+  <h1><%=donor.gender%></h1>
+  <h1><%=donor.med_con%></h1>
+  <h1><%=donor.received_date%></h1>
+  <h1><%=donor.test_date%></h1>
+  <h1><%=donor.status%></h1>
+  <h1><%=donor.HLA_type%></h1>
+  <h1><%=donor.sample_id%></h1>
+  <h1><%=donor.note_org%></h1>
 
-    <form method="POST" action="/org/<%=donor._id%>?_method=DELETE">
-      <button>Delete</button>
-    </form>
-  </body>
-</html>
+  <form method="POST" action="/org/<%=donor._id%>?_method=DELETE">
+    <button>Delete</button>
+  </form>
+</body>
