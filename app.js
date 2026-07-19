@@ -5,6 +5,7 @@ const Donor = require("./models/donor.js");
 const { v4: uuidv4 } = require("uuid");
 const path = require("path");
 const methodOverride = require("method-override");
+const ejsMate = require("ejs-mate");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/bioBridge";
 main()
@@ -23,6 +24,8 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
+app.engine("ejs", ejsMate);
+app.use(express.static(path.join(__dirname, "/public")));
 
 // app.get("/testDonate", async (req, res) => {
 //   let sampleDonate = new Donor({
@@ -54,7 +57,7 @@ app.get("/", (req, res) => {
 // =================================Public Route - From Here======================================
 // Public main page
 app.get("/public", (req, res) => {
-  res.render("public/public.ejs");
+  res.render("public/public.ejs", { currentPage: "public" });
 });
 
 // =================================Public Route - To Here========================================
@@ -62,7 +65,7 @@ app.get("/public", (req, res) => {
 // =================================Donor Route - From Here==========================================
 // register form - new donor
 app.get("/public/register", (req, res) => {
-  res.render("public/register.ejs");
+  res.render("public/register.ejs", { currentPage: "donor" });
 });
 
 // register form - submit
@@ -82,13 +85,13 @@ app.post("/org", async (req, res) => {
 // Lab Dashboard
 app.get("/lab", async (req, res) => {
   const allDonor = await Donor.find({});
-  res.render("laboratory/labDashboard.ejs", { allDonor });
+  res.render("laboratory/labDashboard.ejs", { allDonor, currentPage: "lab" });
 });
 
 // Lab test result enter form
 app.get("/lab/:id/testresult", async (req, res) => {
   const donor = await Donor.findById(req.params.id);
-  res.render("laboratory/testResult.ejs", { donor });
+  res.render("laboratory/testResult.ejs", { donor, currentPage: "lab" });
 });
 
 // Result enter on database
@@ -105,7 +108,7 @@ app.put("/lab/:id", async (req, res) => {
 // organisation dashboard
 app.get("/org", async (req, res) => {
   const allDonor = await Donor.find({});
-  res.render("organisation/orgDashboard.ejs", { allDonor });
+  res.render("organisation/orgDashboard.ejs", { allDonor, currentPage: "org" });
 });
 
 // search option organisation
@@ -123,7 +126,11 @@ app.get("/org/search", async (req, res) => {
     ],
   });
 
-  res.render("organisation/searchResult.ejs", { allDonor, search });
+  res.render("organisation/searchResult.ejs", {
+    allDonor,
+    search,
+    currentPage: "org",
+  });
 });
 
 // show route individual
