@@ -18,7 +18,11 @@
     <h1><%=donor.test_date%></h1>
     <h1><%=donor.status%></h1>
     <h1><%=donor.HLA_type%></h1>
-    <h1><%=donor.donor_id%></h1>
     <h1><%=donor.sample_id%></h1>
+    <h1><%=donor.note_org%></h1>
+
+    <form method="POST" action="/org/<%=donor._id%>?_method=DELETE">
+      <button>Delete</button>
+    </form>
   </body>
 </html>

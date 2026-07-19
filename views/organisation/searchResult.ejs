@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Result</title>
+  </head>
+  <body>
+    <% if(allDonor.length === 0){ %>
+         <h1>No results found for <% search %></h1>
+    <% } %>
+
+    <h1>Search Result</h1>
+    <% for (let donor of allDonor) { %>
+    <h2><%= donor.name %></h2>
+    <% } %>
+  </body>
+</html>

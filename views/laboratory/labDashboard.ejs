@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratory Dashboard</title>
+  </head>
+  <body>
+    <h1>Laboratory Dashboard</h1>
+    <h2>All donors</h2>
+    <ul>
+       <% for(let donor of allDonor) { %>
+          <li><%=donor.name%>
+             &nbsp; &nbsp; &nbsp;
+            <a href="/lab/<%= donor._id %>/testresult">Enter Test Result</a>
+        </li>
+       <% } %>
+    </ul>
+  </body>
+</html>
