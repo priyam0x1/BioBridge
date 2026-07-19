@@ -41,10 +41,10 @@ const donorSchema = new Schema({
   HLA_type: {
     type: String,
   },
-  donor_id: {
+  sample_id: {
     type: String,
   },
-  sample_id: {
+  note_org: {
     type: String,
   },
 });
