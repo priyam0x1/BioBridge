@@ -1,6 +1,198 @@
 <% layout("layouts/boilerplate.ejs") %>
-<body>
-  <form method="GET" action="/public/register">
-    <button>New Register</button>
-  </form>
-</body>
+<link rel="stylesheet" href="/css/publicSite.css" />
+<div class="public-top">
+  <!-- ===========================================Top left Side Start========================================== -->
+  <!-- Left Side Public Top -->
+  <div class="public-top-left">
+    <pre class="top-right-msg">&#8722; STEM CELL & BLOOD DONOR REGISTRY</pre>
+    <h1>
+      One swab today
+      <br />
+      can be <em>someone's cure</em> <br />tomorrow.
+    </h1>
+    <p class="top-right-process-msg">
+      Register once, get a home sample kit, and join a registry that
+      <br />
+      laboratories, hospitals and patients can search when a match
+      <br />
+      is needed most.
+    </p>
+    <div class="public-top-left-register-request">
+      <div class="public-top-left-register-btn">
+        <form method="GET" action="/public/register">
+          <button class="reg_req">New Register</button>
+        </form>
+      </div>
+      <!-- Public Top left register button-->
+      <div class="public-top-left-requst-btn">
+        <form>
+          <button class="reg_req">Request For A Donor</button>
+        </form>
+      </div>
+      <!-- Public Top left request button-->
+      <div class="how-it-works-btn">
+        <form action="#how_it_works">
+          <button class="work_how">How It Works</button>
+        </form>
+      </div>
+      <!--How it works button-->
+    </div>
+    <!-- Public Top left register request-->
+
+    <div class="plateform_data">
+      <div>
+        <h3>48,120</h3>
+        <p>registered donors</p>
+      </div>
+      <div>
+        <h3>6304</h3>
+        <p>kit tested</p>
+      </div>
+      <div>
+        <h3>312</h3>
+        <p>confirmed matches</p>
+      </div>
+    </div>
+    <!--Public top right plateform data-->
+  </div>
+  <!-- Public Top left-->
+  <!-- ===========================================Top Left Side Done========================================== -->
+  <!-- ===========================================Top Right Side Start========================================== -->
+  <!-- Right Side Top Public -->
+  <div class="public-top-right">
+    <div class="public-top-right-preview-box">
+      <div class="preview-top">
+        <p>HLA TYPING PREVIEW</p>
+        <p>SNJ-04471</p>
+      </div>
+      <!--Preview top-->
+      <div class="preview-middle">
+        <div class="preview-middle-div-color1">A*02</div>
+        <div class="preview-middle-div-color2">A*24</div>
+        <div class="preview-middle-div-color1">B*07</div>
+        <div class="preview-middle-div-color2">B*08</div>
+        <div class="preview-middle-div-color1">C*07</div>
+        <div class="preview-middle-div-color2">DRB1</div>
+      </div>
+      <!--Preview middle-->
+      <div class="preview-end">
+        <p>&#8226; Compatible profile found for request HSP-2291</p>
+      </div>
+      <!--Preview top-->
+    </div>
+    <!--Public top right preview box-->
+  </div>
+  <!-- Public Top right-->
+</div>
+<!-- Public Top M<ain Div-->
+<!-- ===========================================Top Right Side Done========================================== -->
+<!-- =========================================Public Middle Start============================================ -->
+
+<section id="how_it_works">
+  <div class="public-middle">
+    <div class="public-middle-buttom-line">
+      <p class="public-middle-msg">THE CHAIN OF CUSTODY</p>
+      <h3>You could be the reason someone gets a second chance</h3>
+      <p class="public-middle-long-msg">
+        Every sample moves through the same six checkpoints, so donors
+        <br />
+        and hospitals always know exactly where a case stands.
+      </p>
+
+      <!-- Process -->
+      <div class="process">
+        <div class="step">
+          <p class="step_num">01</p>
+          <p class="step_title">Register</p>
+          <p class="step_desc">
+            Share basic details and consent online in under five minutes.
+          </p>
+        </div>
+        <div class="step">
+          <p class="step_num">02</p>
+          <p class="step_title">Receive kit</p>
+          <p class="step_desc">
+            A swab kit is couriered to your address at no cost.
+          </p>
+        </div>
+        <div class="step">
+          <p class="step_num">03</p>
+          <p class="step_title">Send sample</p>
+          <p class="step_desc">Return the sample using the prepaid pickup.</p>
+        </div>
+        <div class="step">
+          <p class="step_num">04</p>
+          <p class="step_title">Lab testing</p>
+          <p class="step_desc">
+            A partner laboratory runs HLA typing and logs results.
+          </p>
+        </div>
+        <div class="step">
+          <p class="step_num">05</p>
+          <p class="step_title">Join registry</p>
+          <p class="step_desc">
+            Your typing profile is stored securely, visible only to us.
+          </p>
+        </div>
+        <div class="step">
+          <p class="step_num">06</p>
+          <p class="step_title">Get matched</p>
+          <p class="step_desc">
+            If a patient matches, we contact you before anything moves.
+          </p>
+        </div>
+      </div>
+      <!--Process -->
+    </div>
+    <!--Process middle buttom line-->
+  </div>
+  <!--Public Middle -->
+</section>
+
+<!-- ======================================Public Middle Done=============================================== -->
+<div class="public_end">
+  <p class="public-end-msg">WHO USES THIS PLATFORM</p>
+  <h3>For Everyone Who Want To Save Life</h3>
+  <div class="platform_user_container">
+    <div class="platform_user">
+      <p class="platform_user_title">Donors</p>
+      <p class="platform_user_desc">
+        Register, track kit status and respond when contacted for a match.
+      </p>
+      <a
+        href="http://localhost:8080/public/register"
+        class="platform_user_login_button"
+        >Open Donor Form &#8594;</a
+      >
+    </div>
+    <!--Platform user -->
+    <div class="platform_user">
+      <p class="platform_user_title">Laboratories</p>
+      <p class="platform_user_desc">
+        Log in to view assigned samples and upload typing results.
+      </p>
+      <a href="#" class="platform_user_login_button">Open Lab Login &#8594;</a>
+    </div>
+    <!--Platform user -->
+    <div class="platform_user">
+      <p class="platform_user_title">Hospital</p>
+      <p class="platform_user_desc">
+        Submit requests and coordinate donor matching
+      </p>
+      <a href="#" class="platform_user_login_button"
+        >Open Hospital Login &#8594;</a
+      >
+    </div>
+    <!--Platform user -->
+    <div class="platform_user">
+      <p class="platform_user_title">Organisation</p>
+      <p class="platform_user_desc">
+        Review donor data, manage hospital requests, coordinate matches.
+      </p>
+      <a href="#" class="platform_user_login_button">Open Org Login &#8594;</a>
+    </div>
+    <!--Platform user -->
+  </div>
+  <!--Platform user container-->
+</div>
+<!--Public End-->
