@@ -137,7 +137,7 @@ app.get("/org/search", async (req, res) => {
 app.get("/org/:id", async (req, res) => {
   let id = req.params.id;
   const donor = await Donor.findById(id);
-  res.render("organisation/show.ejs", { donor });
+  res.render("organisation/show.ejs", { donor, currentPage: "org" });
 });
 
 // delete route individual

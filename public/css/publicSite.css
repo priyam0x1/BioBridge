@@ -1,0 +1,272 @@
+* {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  padding-top: 20vh;
+  margin-left: 0;
+}
+
+.public-top {
+  display: flex;
+  justify-content: center;
+  padding: 0 7.5rem;
+}
+
+.public-top-left {
+  flex: 1;
+  border-bottom: 1px solid #c2c5c3;
+}
+
+.top-right-msg {
+  color: #a32638;
+  font-family: "IBM Plex Mono", monospace;
+}
+
+.public-top-left h1 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 3.2rem;
+}
+
+.public-top-left h1 em {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  color: #a32638;
+}
+
+.top-right-process-msg {
+  margin-top: 1rem;
+  color: #5b645f;
+}
+
+.public-top-left-register-request {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.public-top-left-register-request form button {
+  padding: 0.2rem 0.3rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+}
+
+.public-top-left-register-request form .reg_req {
+  background-color: #a32638;
+  color: aliceblue;
+}
+
+.public-top-left-register-request form .reg_req:hover {
+  background-color: #790516;
+  color: white;
+  border: 1px solid black;
+}
+
+.public-top-left-register-request form .work_how {
+  border: 1px solid rgb(196, 186, 186);
+}
+
+.public-top-left-register-request form .work_how:hover {
+  border: 1px solid black;
+}
+
+.plateform_data {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.plateform_data div h3 {
+  text-align: center;
+  font-family: "Fraunces", serif;
+}
+
+/* ==================================== Public Top Right Side ============================================== */
+
+.public-top-right {
+  flex: 1;
+  border-bottom: 1px solid #c2c5c3;
+}
+
+.public-top-right-preview-box {
+  border: 1px solid #d8ded9;
+  border-radius: 13px;
+  margin-top: 8rem;
+  width: 30rem;
+  padding: 26px;
+  margin-left: 5rem;
+}
+
+.preview-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.preview-top p {
+  color: #5b645f;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+}
+
+.preview-middle {
+  display: flex;
+  justify-content: space-between;
+}
+
+.preview-middle div {
+  border-radius: 4px;
+  height: 50px;
+  width: 65px;
+  padding: 1rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+}
+
+.preview-middle-div-color1 {
+  background-color: #12746b;
+  color: #fff;
+}
+
+.preview-middle-div-color2 {
+  background-color: #e7ebe8;
+  color: #5b645f;
+}
+
+.preview-end {
+  color: #12746b;
+  border: 1px solid transparent;
+  background-color: #d8e6e4;
+  margin-top: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  padding-top: 0.9rem;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* ====================================================Public Middle Start=========================================== */
+.public-middle {
+  padding: 0 7.5rem;
+  margin-top: 4rem;
+}
+
+.public-middle-msg {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05rem;
+  color: #5b645f;
+}
+
+.public-middle-long-msg {
+  font-size: 1rem;
+  color: #515754;
+  margin-top: 1rem;
+}
+
+.public-middle h3 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+}
+
+/* ======================================== Process Bar ================================================= */
+.process {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5rem;
+  gap: 1rem;
+}
+
+.step {
+  background: #fff;
+  border: 1px solid #ced4cf;
+  border-radius: 12px;
+  padding: 18px 16px;
+}
+
+.step_num {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  color: #c98a2b;
+  margin-bottom: 10px;
+}
+
+.step_title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.step_desc {
+  font-size: 0.78rem;
+  color: #5b645f;
+}
+
+.public-middle-buttom-line {
+  border-bottom: 1px solid #c2c5c3;
+}
+
+/* ====================================Public Middle Done======================================== */
+.public_end {
+  padding: 0 7.5rem;
+  margin-top: 3rem;
+}
+
+.public-end-msg {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05rem;
+  color: #5b645f;
+}
+
+.public_end h3 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+}
+
+.platform_user_container {
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  gap: 1rem;
+}
+
+.platform_user {
+  background: #fff;
+  border: 1px solid #ced4cf;
+  border-radius: 12px;
+  padding: 18px 16px;
+}
+
+.platform_user_title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.platform_user_desc {
+  font-size: 0.78rem;
+  color: #5b645f;
+}
+
+.platform_user_login_button {
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: #fff;
+  border: 1px solid #ced4cf;
+  border-radius: 12px;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: black;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.platform_user_login_button:hover {
+  border: 1px solid black;
+}
