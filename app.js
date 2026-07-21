@@ -82,8 +82,13 @@ app.post("/org", async (req, res) => {
 // =================================Donor Route - To Here==========================================
 
 // =================================Laboratory Route - From Here ==================================
+// Lab Login
+app.get("/lab/lablogin", async (req, res) => {
+  res.render("laboratory/labLogin.ejs", { currentPage: "lab" });
+});
+
 // Lab Dashboard
-app.get("/lab", async (req, res) => {
+app.get("/lab/labdashboard", async (req, res) => {
   const allDonor = await Donor.find({});
   res.render("laboratory/labDashboard.ejs", { allDonor, currentPage: "lab" });
 });
