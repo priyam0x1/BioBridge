@@ -74,12 +74,29 @@ app.post("/org", async (req, res) => {
   donor.sample_id = uuidv4();
   const newDonor = new Donor(donor);
   await newDonor.save();
-  res.send(
-    "Thanks for resgister || This is res.send || I have to create thanks page",
-  );
+  res.render("public/thankDonor.ejs", { newDonor, currentPage: "donor" });
 });
 
 // =================================Donor Route - To Here==========================================
+
+// =================================Hospital Route - Frome Here========================================
+
+// Hospital login
+app.get("/public/hospitallogin", (req, res) => {
+  res.render("public/hospitalLogin.ejs", { currentPage: "hospital" });
+});
+
+// Hospital Request
+app.get("/public/request", (req, res) => {
+  res.render("public/request.ejs", { currentPage: "hospital" });
+});
+
+// Hospital Request Store
+app.post("/org/orgdashboard", (req, res) => {
+  res.render("public/thankHospital.ejs", { currentPage: "public" });
+});
+
+// =================================Hospital Route - To Here========================================
 
 // =================================Laboratory Route - From Here ==================================
 // Lab Login
@@ -111,7 +128,12 @@ app.put("/lab/:id", async (req, res) => {
 
 // ============================ Organisation Route - From Here ==================================
 // organisation dashboard
-app.get("/org", async (req, res) => {
+app.get("/org/orglogin", (req, res) => {
+  res.render("organisation/orgLogin.ejs", { currentPage: "org" });
+});
+
+// organisation dashboard
+app.get("/org/orgdashboard", async (req, res) => {
   const allDonor = await Donor.find({});
   res.render("organisation/orgDashboard.ejs", { allDonor, currentPage: "org" });
 });
@@ -149,7 +171,7 @@ app.get("/org/:id", async (req, res) => {
 app.delete("/org/:id", async (req, res) => {
   const deletedDonor = await Donor.findByIdAndDelete(req.params.id);
   console.log(deletedDonor);
-  res.redirect("/org");
+  res.redirect("/org/orgdashboard");
 });
 
 // ===================================Organisation Route - To Here ==================================
