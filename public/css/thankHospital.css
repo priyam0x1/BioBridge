@@ -1,0 +1,61 @@
+body {
+  padding-top: 20vh;
+  font-family: "Inter", sans-serif;
+}
+
+.thank_container {
+  display: inline-block;
+  margin-left: 27rem;
+}
+
+.success-icon {
+  width: 72px;
+  height: 72px;
+  background: #11796b;
+  color: white;
+  font-size: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 28px;
+}
+
+p,
+h2 {
+  text-align: center;
+}
+
+h2 {
+  margin-left: 0.5rem;
+}
+
+.complete_reg {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  color: #5b645f;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.complete_msg {
+  font-size: 0.9rem;
+  color: #5b645f;
+}
+
+#button {
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  background-color: #a32638;
+  padding: 0.8rem 1.5rem;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #fff;
+  margin-top: 1rem;
+  margin-left: 10.5rem;
+}
+
+#button:hover {
+  background-color: #7a1927;
+}

@@ -1,0 +1,23 @@
+<% layout("layouts/boilerplate.ejs") %>
+<link rel="stylesheet" href="/css/thankDonor.css" />
+
+<div class="thank_container">
+  <div class="success-icon">✓</div>
+  <p class="complete_reg">Registration complete</p>
+  <h2>Thank You, <%=newDonor.name%></h2>
+  <p class="complete_msg">
+    You've taken the first step toward possibly saving a life. A <br />
+    sample kit will be couriered to the address you gave us <br />
+    within 5–7 days, along with instructions for sending your <br />
+    sample back.
+  </p>
+  <p class="complete_msg">
+    We'll reach out by phone or email if we ever need anything <br />
+    further from you — including if you're ever identified as a <br />
+    match.
+  </p>
+  <form method="get" action="/public">
+    <button id="button">Back to home</button>
+  </form>
+</div>
+<!--Thank Container-->

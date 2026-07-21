@@ -1,0 +1,21 @@
+<% layout("layouts/boilerplate.ejs") %>
+<link rel="stylesheet" href="/css/thankHospital.css" />
+
+<div class="thank_container">
+  <div class="success-icon">✓</div>
+  <p class="complete_reg">Request submitted</p>
+  <h2>Your request has been received.</h2>
+  <p class="complete_msg">
+    Reference HSP-REQ-3087 has been logged with our <br />organisation team.
+    We'll search the registry for a compatible <br />
+    donor and contact you directly at the phone or email you <br />provided.
+  </p>
+  <p class="complete_msg">
+    Please don't submit a duplicate request for the same patient <br />
+    — reach out to our coordination team if anything changes.
+  </p>
+  <form method="get" action="/public">
+    <button id="button">Back to home</button>
+  </form>
+</div>
+<!--Thank Container-->
