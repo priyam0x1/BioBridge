@@ -32,19 +32,10 @@ const donorSchema = new Schema({
   received_date: {
     type: Date,
   },
-  test_date: {
-    type: Date,
-  },
-  status: {
-    type: String,
-  },
-  HLA_type: {
-    type: String,
-  },
   sample_id: {
     type: String,
   },
-  note_org: {
+  donor_id: {
     type: String,
   },
 });
