@@ -1,64 +1,152 @@
 <% layout("layouts/boilerplate.ejs") %>
-<body>
-  <h1>Donor Registration Form</h1>
-  <form method="POST" action="/org">
-    <input placeholder="Full Name" name="donor[name]" />
-    <br />
-    <br />
-    <input type="date" name="donor[dob]" />
-    <br />
-    <br />
-    <input type="number" placeholder="Phone Number" name="donor[phone]" />
-    <br />
-    <br />
-    <input type="email" placeholder="Email" name="donor[email]" />
-    <br />
-    <br />
-    <textarea
-      placeholder="Delivery address kit"
-      name="donor[address]"
-    ></textarea>
-    <br />
-    <br />
-    <select name="donor[blood_grp]">
-      <option>Not Sure</option>
-      <option>A+</option>
-      <option>B+</option>
-      <option>O+</option>
-      <option>O-</option>
-    </select>
-    <br />
-    <br />
-    <select name="donor[gender]">
-      <option>Male</option>
-      <option>Female</option>
-      <option>Other</option>
-      <option>Prefer not to say</option>
-    </select>
-    <br />
-    <br />
-    <textarea
-      placeholder="any existing medical condition"
-      name="donor[med_con]"
-    ></textarea>
-    <br />
-    <br />
-    <input type="checkbox" id="first-chkbox" required />
-    <label for="first-chkbox"
-      >I consent to Sanjeevani storing my typing results and contacting me if I
-      am identified as a potential match. I understand my identity is never
-      shared with a hospital or patient without my separate consent at that
-      time.</label
-    >
-    <br />
-    <br />
-    <input type="checkbox" id="second-chkbox" required />
-    <label for="second-chkbox"
-      >I confirm the details above are accurate and I am eligible to donate as
-      per the guidelines shown.</label
-    >
-    <br />
-    <br />
-    <button type="submit">Submit & request kit</button>
+<link rel="stylesheet" href="/css/register.css" />
+<!-- =============================================Back to site div============================================= -->
+<div class="back_to_site">
+  <form method="GET" action="/public">
+    <button class="back_to_site_btn">&#8592;Back to site</button>
   </form>
-</body>
+</div>
+
+<!-- ================================================Login Form============================================== -->
+<div class="form_container">
+  <div class="form_box">
+    <p id="card_top_donor_reg">DONOR REGISTRATION</p>
+    <h3>Tell Us About You</h3>
+    <p id="card_top_mail_donor">
+      This takes about five minutes. We'll mail a sample kit to the address you
+      provide.
+    </p>
+    <form method="POST" action="/org">
+      <div class="double_input">
+        <div class="lab_input">
+          <label for="fullname">Full name</label>
+          <input
+            id="fullname"
+            placeholder="e.g. Priyam Pratim"
+            name="donor[name]"
+            required
+          />
+        </div>
+        <!--Lab Input-->
+        <div class="lab_input">
+          <label for="dob">Date of birth</label>
+          <input id="dob" type="date" name="donor[dob]" required />
+        </div>
+        <!--Lab Input-->
+      </div>
+      <!--Single Line For One/Two Input-->
+      <div class="double_input">
+        <div class="lab_input">
+          <label for="phone">Phone number</label>
+          <input
+            id="phone"
+            type="number"
+            required
+            placeholder="+91 8723xxxxxx"
+            name="donor[phone]"
+          />
+        </div>
+        <!--Lab Input-->
+        <div class="lab_input">
+          <label for="email">Email address</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="you@example.com"
+            name="donor[email]"
+          />
+        </div>
+        <!--Lab Input-->
+      </div>
+      <!--Single Line For One/Two Input-->
+      <div>
+        <div class="lab_input">
+          <label for="deladdr">Delivery address for the kit</label>
+          <textarea
+            id="deladdr"
+            required
+            placeholder="House / Street / City / State / PIN"
+            name="donor[address]"
+          ></textarea>
+        </div>
+        <!--Lab Input-->
+      </div>
+      <!--Single Line For One/Two Input-->
+      <div class="double_input">
+        <div class="lab_input">
+          <label for="blood_grp"
+            >Blood group
+            <p>(if known)</p>
+            <p></p
+          ></label>
+          <select id="blood_grp" name="donor[blood_grp]">
+            <option>Not Sure</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+            <option>Bombay Blood Group (hh)</option>
+            <option>Rh-null</option>
+            <option>Other Rare Blood Group</option>
+          </select>
+        </div>
+        <!--Lab Input-->
+        <div class="lab_input">
+          <label for="gender">Gender</label>
+          <select id="gender" name="donor[gender]">
+            <option>Prefer not to say</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <!--Lab Input-->
+      </div>
+      <!--Single Line For One/Two Input-->
+      <div>
+        <div class="lab_input">
+          <label for="med_con"
+            >Any existing medical conditions
+            <p>(optional)</p></label
+          >
+          <textarea
+            id="med_con"
+            placeholder="Help us to check your eligibility"
+            name="donor[med_con]"
+          ></textarea>
+        </div>
+        <!--Lab Input-->
+      </div>
+      <!--Single Line For One/Two Input-->
+      <div class="chkbox">
+        <div class="chk_item">
+          <input type="checkbox" id="first-chkbox" required />
+          <label for="first-chkbox"
+            >I consent to BioBridge storing my typing results and contacting me
+            if I am <br />
+            identified as a potential match. I understand my identity is never
+            shared with a <br />hospital or patient without my separate consent
+            at that time.</label
+          >
+        </div>
+        <!--Check Item || Labal & input-->
+        <div class="chk_item">
+          <input type="checkbox" id="second-chkbox" required />
+          <label for="second-chkbox"
+            >I confirm the details above are accurate and I am eligible to
+            donate as per the <br />
+            guidelines shown.</label
+          >
+        </div>
+      </div>
+      <!--Check Item || Labal & input-->
+      <button id="button" type="submit">Submit & request kit</button>
+    </form>
+  </div>
+  <!--Form Box-->
+</div>
+<!--Form Container-->
