@@ -1,0 +1,166 @@
+.hospital-request {
+  padding: 2rem 7.5rem;
+  background: #f7f7f5;
+  min-height: 88vh;
+}
+
+/* Back Button */
+
+.hospital-back {
+  margin-bottom: 2rem;
+}
+
+.hospital-back a {
+  display: inline-block;
+  text-decoration: none;
+  color: #111827;
+  border: 1px solid #d7d7d7;
+  border-radius: 10px;
+  padding: 0.65rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background: #fff;
+  transition: 0.25s;
+}
+
+.hospital-back a:hover {
+  background: #f3f3f3;
+}
+
+/* Card */
+
+.hospital-card {
+  max-width: 760px;
+  margin: auto;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 18px;
+  padding: 2rem;
+}
+
+/* Heading */
+
+.hospital-tag {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  color: #5b645f;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+
+.hospital-card h2 {
+  font-family: "Fraunces", serif;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 14px;
+}
+
+.hospital-desc {
+  color: #5b645f;
+  line-height: 1.7;
+  margin-bottom: 1.8rem;
+  font-size: 0.96rem;
+}
+
+/* Two Column */
+
+.hospital-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.hospital-field {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+/* Labels */
+
+.hospital-field label {
+  font-size: 0.83rem;
+  font-weight: 600;
+  margin-bottom: 0.45rem;
+  margin-left: 2px;
+}
+
+.hospital-field label span {
+  font-weight: 400;
+  color: #6b7280;
+}
+
+/* Inputs */
+
+.hospital-field input,
+.hospital-field select,
+.hospital-field textarea {
+  width: 100%;
+  border: 1px solid #d8ded9;
+  border-radius: 12px;
+  padding: 0.82rem 0.95rem;
+  font-size: 0.95rem;
+  outline: none;
+  transition: 0.25s;
+  background: #fff;
+}
+
+.hospital-field textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+.hospital-field input:focus,
+.hospital-field textarea:focus,
+.hospital-field select:focus {
+  border-color: #1f7a6b;
+  box-shadow: 0 0 0 3px rgba(31, 122, 107, 0.15);
+}
+
+/* Date */
+
+.hospital-field input[type="date"] {
+  color: #555;
+}
+
+/* Checkbox */
+
+.hospital-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin: 1.4rem 0;
+}
+
+.hospital-check input {
+  width: 18px;
+  height: 18px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.hospital-check label {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #4b5563;
+}
+
+/* Button */
+
+.hospital-card button {
+  width: 100%;
+  border: none;
+  background: #aa2439;
+  color: #fff;
+  padding: 0.95rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hospital-card button:hover {
+  background: #911d30;
+}

@@ -1,0 +1,140 @@
+<% layout("layouts/boilerplate.ejs") %>
+<link rel="stylesheet" href="/css/request.css" />
+
+<main class="hospital-request">
+  <div class="hospital-back">
+    <a href="/public">&#8592; Back to site</a>
+  </div>
+
+  <div class="hospital-card">
+    <p class="hospital-tag">HOSPITAL REQUEST</p>
+
+    <h2>Request a donor match</h2>
+
+    <p class="hospital-desc">
+      Submit patient and requirement details. Our organisation team will search
+      the registry and reach out directly with next steps — no donor data is
+      shown on this form.
+    </p>
+
+    <form action="/org/orgdashboard" method="POST">
+      <div class="hospital-row">
+        <div class="hospital-field">
+          <label>Hospital name</label>
+          <input
+            type="text"
+            placeholder="e.g. Guwahati Medical College"
+            name="hospitalName"
+            required
+          />
+        </div>
+
+        <div class="hospital-field">
+          <label>Registered hospital ID <span>(if known)</span></label>
+          <input type="text" placeholder="e.g. HSP-2291" name="hospitalId" />
+        </div>
+      </div>
+
+      <div class="hospital-row">
+        <div class="hospital-field">
+          <label>Contact person</label>
+          <input
+            type="text"
+            placeholder="Dr. name"
+            name="contactPerson"
+            required
+          />
+        </div>
+
+        <div class="hospital-field">
+          <label>Contact phone / email</label>
+          <input
+            type="text"
+            placeholder="Direct line for our team to reach you"
+            name="contact"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="hospital-row">
+        <div class="hospital-field">
+          <label>What's needed</label>
+
+          <select name="requiredDonation">
+            <option>Stem cell donor</option>
+            <option>Bone marrow donor</option>
+            <option>Blood donor</option>
+          </select>
+        </div>
+
+        <div class="hospital-field">
+          <label>Blood group / HLA typing required</label>
+
+          <input
+            type="text"
+            placeholder="e.g. O negative, or HLA A*02, B*07."
+            name="bloodGroup"
+          />
+        </div>
+      </div>
+
+      <div class="hospital-field">
+        <label>
+          Patient reference
+          <span>(hospital-side ID, no patient name)</span>
+        </label>
+
+        <input
+          type="text"
+          placeholder="e.g. PT-2291"
+          name="patientReference"
+          required
+        />
+      </div>
+
+      <div class="hospital-row">
+        <div class="hospital-field">
+          <label>Urgency</label>
+
+          <select name="urgency">
+            <option>Urgent — within days</option>
+            <option>Within 2 weeks</option>
+            <option>Within 1 month</option>
+            <option>Routine</option>
+          </select>
+        </div>
+
+        <div class="hospital-field">
+          <label>Needed by</label>
+
+          <input type="date" name="neededBy" />
+        </div>
+      </div>
+
+      <div class="hospital-field">
+        <label>
+          Additional notes for our team
+          <span>(optional)</span>
+        </label>
+
+        <textarea
+          rows="4"
+          placeholder="Anything that helps us prioritise or search accurately"
+          name="notes"
+        ></textarea>
+      </div>
+
+      <div class="hospital-check">
+        <input type="checkbox" required />
+
+        <label>
+          I confirm this request is made on behalf of a registered hospital and
+          that no donor will be contacted without Sanjeevani's confirmation.
+        </label>
+      </div>
+
+      <button type="submit">Submit request</button>
+    </form>
+  </div>
+</main>
