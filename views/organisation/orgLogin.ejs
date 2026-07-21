@@ -1,0 +1,24 @@
+<% layout("layouts/boilerplate.ejs") %>
+<link rel="stylesheet" href="/css/orgLogin.css" />
+<div class="org-login-container">
+  <div class="org-login-card">
+    <p class="org-access-only-msg">Organisation staff only</p>
+    <h3>Organisation login</h3>
+    <p class="org-login-second-msg">
+      For BioBridge staff managing donors, results and hospital requests.
+    </p>
+    <form method="get" action="/org/orgdashboard">
+      <div class="org_input">
+        <label for="staffEmail">Staff email</label>
+        <input id="staffEmail" type="text" placeholder="LAB-0032" />
+      </div>
+      <div class="org_input">
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Password" />
+      </div>
+      <button id="button">Log in</button>
+    </form>
+  </div>
+  <!--Org login card-->
+</div>
+<!--Org login container -->

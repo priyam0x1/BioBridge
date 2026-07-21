@@ -1,0 +1,27 @@
+<% layout("layouts/boilerplate.ejs") %>
+<link rel="stylesheet" href="/css/hospitalLogin.css" />
+<div class="lab-login-container">
+  <div class="lab-login-card">
+    <p class="lab-access-only-msg">Hospital access only</p>
+    <h3>Hospital login</h3>
+    <p class="lab-login-second-msg">
+      Restricted to partner hospitals submitting donor match requests.
+    </p>
+    <form method="get" action="/public/request">
+      <div class="lab_input">
+        <label for="labID">Hospital ID</label>
+        <input id="labID" type="text" placeholder="LAB-0032" />
+      </div>
+      <div class="lab_input">
+        <label for="password">Password</label>
+        <input id="password" type="password" placeholder="Password" />
+      </div>
+      <button id="button">Log in</button>
+    </form>
+    <p class="lab-login-last-msg">
+      Access is issued by BioBridge after hospital accreditation is verified.
+    </p>
+  </div>
+  <!--Lab login card-->
+</div>
+<!--lab login container -->
