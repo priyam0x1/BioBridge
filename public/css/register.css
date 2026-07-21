@@ -1,0 +1,144 @@
+body {
+  padding-top: 20vh;
+  font-family: "Inter", sans-serif;
+}
+
+.back_to_site {
+  margin: 0 7.5rem;
+}
+
+.back_to_site_btn {
+  padding: 8px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: transparent;
+  border: 1px solid #d8ded9;
+  border-radius: 8px;
+  color: #1c1b1f;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.back_to_site_btn:hover {
+  border-color: #1c1b1f;
+}
+
+/* ==========================================Input Form ========================================== */
+.form_container {
+  margin: 0.5rem 7.5rem;
+  padding: 0 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid transparent;
+}
+
+.form_box {
+  border: 1px solid #d8ded9;
+  border-radius: 14px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+#card_top_donor_reg {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  color: #5b645f;
+  letter-spacing: 0.05em;
+}
+
+#card_top_mail_donor {
+  font-size: 0.9rem;
+  color: #5b645f;
+}
+
+.form_box h3 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+}
+
+.lab_input {
+  display: flex;
+  flex-direction: column;
+}
+
+.double_input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+#fullname,
+#dob,
+#phone,
+#email,
+#blood_grp,
+#gender {
+  width: 17.5rem;
+  border: 1px solid #d8ded9;
+  border-radius: 14px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+#deladdr,
+#med_con {
+  border: 1px solid #d8ded9;
+  border-radius: 14px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+input[type="date"] {
+  color: #5b645f;
+}
+
+label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  margin-left: 0.8rem;
+}
+
+label p {
+  display: inline;
+  color: #5b645f;
+  font-size: 12px;
+}
+
+.chk_item {
+  margin-top: 1rem;
+  margin-left: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.chk_item input[type="checkbox"] {
+  margin-top: 4px;
+}
+
+.chk_item label {
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  color: #5b645f;
+}
+
+#button {
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #a32638;
+  color: #fff;
+  padding: 0.8rem;
+  width: 100%;
+  margin-top: 1rem;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+#button:hover {
+  background-color: #8f1d2e;
+}
