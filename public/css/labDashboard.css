@@ -1,0 +1,194 @@
+.lab_dashboard {
+  margin-top: 5vh;
+  padding: 0 7.5rem;
+}
+
+.top_div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo_lab_name_container {
+  display: flex;
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 50%;
+  padding: 0.75rem;
+  color: white;
+  background-color: #c98a2b;
+}
+
+.lab_name_code_container {
+  margin-left: 0.6rem;
+  margin-top: 0.1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.lab_name {
+  color: #1c1b1f;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.lab_code {
+  display: inline-block;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  color: #5b645f;
+}
+
+#logout {
+  border: 1px solid #d8ded9;
+  border-radius: 8px;
+  padding: 0.3rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  margin-top: 0.7rem;
+}
+
+#logout:hover {
+  border-color: #5b645f;
+}
+
+/* =====================================Top Div Done================================================== */
+
+.second_div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+.second_div_box {
+  border: 1px solid #d8ded9;
+  border-radius: 8px;
+  background-color: aliceblue;
+  flex: 1;
+  padding: 1rem;
+}
+
+.second_div_box h3 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+}
+
+.second_div_box p {
+  font-size: 0.9rem;
+  color: #5b645f;
+}
+
+/* ============================================Second div done ====================================== */
+
+.third_div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+  border: 1px solid #d8ded9;
+  border-radius: 8px;
+}
+
+.assigned_sample {
+  border: 1px solid #d8ded9;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.assigned_sample h4 {
+  font-family: "Fraunces", serif;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.assigned_sample input {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.3rem 0.2rem;
+  width: 18rem;
+  border: 1px solid #bac2bb;
+  border-radius: 8px;
+}
+
+/* .column_name {
+  border: 1px solid #d8ded9;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  padding-bottom: 0;
+} */
+
+.column_name p {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #5b645f;
+}
+
+.column_name pre {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #5b645f;
+}
+
+/* .donor_detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+} */
+
+.column_name,
+.donor_detail {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.3fr 1.3fr 0.6fr;
+  align-items: center;
+  padding: 1rem;
+  column-gap: 1rem;
+  border-bottom: 1px solid #d8ded9;
+}
+
+.column_name {
+  padding-bottom: 0;
+}
+
+.test_btn {
+  border-radius: 8px;
+  border: none;
+  background-color: #12746b;
+  color: #fff;
+  font-size: 0.88rem;
+  padding: 0.4rem;
+}
+
+.delete_btn {
+  border-radius: 8px;
+  border: none;
+  background-color: rgb(77, 74, 74);
+  color: white;
+  font-size: 12.48px;
+  padding: 0.2rem;
+}
+
+/* ============================================Third Div Done ========================================= */
+.last_div {
+  border-radius: 8px;
+  border: none;
+  border: 1px solid #d8ded9;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  padding-bottom: 0;
+}
+
+.last_div p {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #5b645f;
+}

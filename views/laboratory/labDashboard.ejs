@@ -1,13 +1,80 @@
 <% layout("layouts/boilerplate.ejs") %>
-  <body>
-    <h1>Laboratory Dashboard</h1>
-    <h2>All donors</h2>
-    <ul>
-       <% for(let donor of allDonor) { %>
-          <li><%=donor.name%>
-             &nbsp; &nbsp; &nbsp;
-            <a href="/lab/<%= donor._id %>/testresult">Enter Test Result</a>
-        </li>
-       <% } %>
-    </ul>
-  </body>
+<link rel="stylesheet" href="/css/labDashboard.css" />
+<div class="lab_dashboard">
+  <div class="top_div">
+    <div class="logo_lab_name_container">
+      <div class="logo">MD</div>
+      <div class="lab_name_code_container">
+        <div class="lab_name">MedCore Diagnostics</div>
+        <div class="lab_code">Laboratory · LAB-0032</div>
+      </div>
+      <!--lab name-->
+    </div>
+    <!--logo and lab name container-->
+    <div>
+      <form method="get" action="/lab/lablogin">
+        <button id="logout">Log Out</button>
+      </form>
+    </div>
+    <!--Log Out Button-->
+  </div>
+  <!--Top div-->
+  <!-- ============================================Top div done========================================= -->
+  <!--Second Div-->
+  <div class="second_div">
+    <div class="second_div_box">
+      <h3>18</h3>
+      <p>samples awaiting testing</p>
+    </div>
+    <div class="second_div_box">
+      <h3>6</h3>
+      <p>in progress</p>
+    </div>
+    <div class="second_div_box">
+      <h3>142</h3>
+      <p>results submitted</p>
+    </div>
+    <div class="second_div_box">
+      <h3>2</h3>
+      <p>flagged samples</p>
+    </div>
+  </div>
+  <!--Second Div-->
+  <!-- ===========================================Second Div Done============================= -->
+  <div class="third_div">
+    <div class="assigned_sample">
+    <h4>Assigned Samples</h4>
+    <form method="get" action="/lab/labdashboard/search">
+    <input type="text" name="search" placeholder="Search Here Using Name/Donor ID">
+    </form>
+    </div>
+    <div class="column_name">
+      <p>Donor Name</p>
+      <p>Donor ID</p>
+      <p>Sample ID</p>
+      <p>Received Date</p>
+      <pre> Result</pre>
+      <pre> Action</pre>
+    </div>
+    <% for(let donor of allDonor) { %>
+      <div class="donor_detail">
+      <div><%=donor.name%></div>
+      <div><%=donor.donor_id.slice(0, 5)%></div>
+      <div><%=donor.sample_id.slice(0, 5)%></div>
+      <div><%=donor.received_date.toLocaleDateString()%></div>
+      <form method="get" action="/lab/<%=donor._id%>/testresult">
+        <button class="test_btn">Enter Test Result</button>
+      </form>
+      <form method="post" action="/lab/labdashboard/<%=donor._id%>?_method=DELETE">
+        <button class="delete_btn">Delete Donor</button>
+      </form>
+      </div>
+      <% } %>
+  </div> 
+  <!-- Third Div -->
+   <!-- =======================================Third Div Done========================================= -->
+<div class="last_div">
+  <p>Results submitted here are stored directly to the BioBridge registry database and are visible only to Sanjeevani's organisation team — laboratories cannot view donor identity or contact details.</p>
+</div>
+</div>
+<!--Lab Dashboard Main Container-->
