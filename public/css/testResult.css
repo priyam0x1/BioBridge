@@ -28,6 +28,12 @@ label {
   margin-left: 0.8rem;
 }
 
+label p {
+  display: inline;
+  color: #5b645f;
+  font-size: 12px;
+}
+
 .lab_input {
   display: flex;
   flex-direction: column;
@@ -49,7 +55,8 @@ label {
   margin: 0.5rem;
 }
 
-#org_note {
+#org_note,
+#med_con {
   width: 36rem;
   border: 1px solid #d8ded9;
   border-radius: 14px;

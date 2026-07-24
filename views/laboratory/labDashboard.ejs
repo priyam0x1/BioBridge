@@ -50,23 +50,23 @@
     </div>
     <div class="column_name">
       <p>Donor Name</p>
-      <p>Donor ID</p>
       <p>Sample ID</p>
       <p>Received Date</p>
+      <p>Status</p>
       <pre> Result</pre>
       <pre> Action</pre>
     </div>
     <% for(let donor of allDonor) { %>
       <div class="donor_detail">
       <div><%=donor.name%></div>
-      <div><%=donor.donor_id.slice(0, 5)%></div>
       <div><%=donor.sample_id.slice(0, 5)%></div>
       <div><%=donor.received_date.toLocaleDateString()%></div>
+      <div><%=donor.status%></div>
       <form method="get" action="/lab/<%=donor._id%>/testresult">
-        <button class="test_btn">Enter Test Result</button>
+        <button class="test_btn" <%= donor.status === "submitted" ? "disabled" : "" %>>Enter Test Result</button>
       </form>
       <form method="post" action="/lab/labdashboard/<%=donor._id%>?_method=DELETE">
-        <button class="delete_btn">Delete Donor</button>
+        <button class="delete_btn" <%= donor.status === "submitted" ? "disabled" : "" %>>Delete Donor</button>
       </form>
       </div>
       <% } %>

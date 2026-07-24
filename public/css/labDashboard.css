@@ -175,6 +175,16 @@
   padding: 0.2rem;
 }
 
+.test_btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.delete_btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* ============================================Third Div Done ========================================= */
 .last_div {
   border-radius: 8px;

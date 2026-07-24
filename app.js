@@ -74,6 +74,7 @@ app.post("/org", async (req, res) => {
   donor.sample_id = uuidv4();
   donor.donor_id = uuidv4();
   donor.received_date = new Date();
+  donor.status = "Pending";
   const newDonor = new Donor(donor);
   await newDonor.save();
   res.render("public/thankDonor.ejs", { newDonor, currentPage: "donor" });
@@ -135,12 +136,10 @@ app.get("/lab/:id/testresult", async (req, res) => {
 // Result enter on database
 app.put("/lab/:id", async (req, res) => {
   const { id } = req.params;
-  console.log(id);
-  let HLA_type = req.body.donor;
-  console.log(HLA_type);
-  // await Donor.findByIdAndUpdate(id, { ...req.body.donor });
-  // const donor = await Donor.findById(id);
-  res.send("Laboratoryk kiba thank you type r msg ata dekhaba lagbo");
+  await Donor.findByIdAndUpdate(id, { ...req.body.donor, status: "submitted" });
+  const donor = await Donor.findById(id);
+  console.log(donor);
+  res.redirect("/lab/labDashboard");
 });
 
 // delete route individual
