@@ -38,6 +38,19 @@ const donorSchema = new Schema({
   donor_id: {
     type: String,
   },
+  HLA_type: {
+    type: String,
+  },
+  status: {
+    type: String,
+    required: true,
+  },
+  test_date: {
+    type: Date,
+  },
+  note_org: {
+    type: String,
+  },
 });
 
 const Donor = mongoose.model("Donor", donorSchema);
