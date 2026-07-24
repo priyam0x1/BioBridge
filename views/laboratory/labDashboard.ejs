@@ -23,7 +23,7 @@
   <!--Second Div-->
   <div class="second_div">
     <div class="second_div_box">
-      <h3>18</h3>
+      <h3><%=pendingDonors%></h3>
       <p>samples awaiting testing</p>
     </div>
     <div class="second_div_box">
@@ -31,7 +31,7 @@
       <p>in progress</p>
     </div>
     <div class="second_div_box">
-      <h3>142</h3>
+      <h3><%=submittedDonors%></h3>
       <p>results submitted</p>
     </div>
     <div class="second_div_box">
@@ -63,10 +63,10 @@
       <div><%=donor.received_date.toLocaleDateString()%></div>
       <div><%=donor.status%></div>
       <form method="get" action="/lab/<%=donor._id%>/testresult">
-        <button class="test_btn" <%= donor.status === "submitted" ? "disabled" : "" %>>Enter Test Result</button>
+        <button class="test_btn" <%= donor.status === "Submitted" ? "disabled" : "" %>>Enter Test Result</button>
       </form>
       <form method="post" action="/lab/labdashboard/<%=donor._id%>?_method=DELETE">
-        <button class="delete_btn" <%= donor.status === "submitted" ? "disabled" : "" %>>Delete Donor</button>
+        <button class="delete_btn" <%= donor.status === "Submitted" ? "disabled" : "" %>>Delete Donor</button>
       </form>
       </div>
       <% } %>

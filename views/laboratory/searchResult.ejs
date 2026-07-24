@@ -11,6 +11,16 @@
          <h1>No results found for <%= search %></h1>
     <% } else { %>
     <h1>Search Result</h1>
+    <div class="search_header">
+      <div class="column_name">
+      <p>Donor Name</p>
+      <p>Donor ID</p>
+      <p>Sample ID</p>
+      <p>Received Date</p>
+      <p>Result</p>
+      <p>Action</p>
+    </div> <!--column Name-->
+    </div> <!--Search Header-->
     <% for (let donor of allDonor) { %>
     <div class="donor_detail">
       <div><%=donor.name%></div>

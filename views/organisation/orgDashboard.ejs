@@ -1,14 +1,103 @@
 <% layout("layouts/boilerplate.ejs") %>
-  <body>
-    <h1>Hello from organisation</h1>
-      <form method="GET" action="/org/search">
-      <input type="text" name="search" placeholder="search">
-      <button type="submit">Search</button>
+<link rel="stylesheet" href="/css/orgDashboard.css" />
+<div class="org_dashboard">
+  <div class="top_div">
+    <div class="logo_org_name_container">
+      <div class="logo">OR</div>
+      <div class="org_name_code_container">
+        <div class="org_name">Organisation Dashboard</div>
+        <div class="org_code">Staff · priyam@biobridge.org</div>
+      </div>
+      <!--org name-->
+    </div>
+    <!--logo and org name container-->
+    <div>
+      <form method="get" action="/org/orglogin">
+        <button id="logout">Log Out</button>
+      </form>
+    </div>
+    <!--Log Out Button-->
+  </div>
+  <!--Top div-->
+  <!-- ============================================Top Div Done ================================== -->
+  <!--Second Div-->
+  <div class="second_div">
+    <div class="second_div_box">
+      <h3><%=totalDonors%></h3>
+      <p>registered donors</p>
+    </div>
+    <div class="second_div_box">
+      <h3>2</h3>
+      <p>kits in transit</p>
+    </div>
+    <div class="second_div_box">
+      <h3>2</h3>
+      <p>new results this week</p>
+    </div>
+    <div class="second_div_box">
+      <h3><%=totalRequest%></h3>
+      <p>open hospital requests</p>
+    </div>
+  </div>
+  <!--Second Div-->
+  <!-- ===========================================Second Div Done============================= -->
+  <!-- ===========================================Third Div ============================= -->
+  <div class="third_div_container">
+    <div class="left_div">
+      <div class="third_div">
+    <div class="assigned_sample">
+    <h4>Assigned Samples</h4>
+    <form method="get" action="/org/orgdashboard/search">
+    <input type="text" name="search" placeholder="Search Here By HLA Type/Blood Group/Donor ID">
     </form>
-    <h2>All donor</h2>
-    <ul>
-        <% for(let donor of allDonor) { %> 
-        <li><a href="/org/<%= donor._id %>"><%= donor.name %></a></li>
+    </div>
+    <div class="column_name">
+      <p>Donor ID</p>
+      <p >Donor Name</p>
+      <p>HLA Type</p>
+      <p>Blood Group</p>
+      <p>Test Date</p>
+      <pre> Action</pre>
+    </div>
+    <% for(let donor of allDonor) { 
+      if (donor.status === "Submitted") { %>
+      <div class="donor_detail">
+      <div><%=donor.id.slice(0, 7)%></div>
+      <div><%=donor.name%></div>
+      <div><%=donor.HLA_type%></div>
+      <div><%=donor.blood_grp%></div>
+      <div><%=donor.test_date.toLocaleDateString()%></div>
+      <form method="get" action="/org/orgdashboard/<%=donor._id%>">
+        <button class="view_btn">View Donor</button>
+      </form>
+      </div>
+      <% } } %>
+  </div>
+    </div>
+    <!--Left view Done-->
+    <div class="right_div">
+      <h5>Hospital Requests</h5>
+      <% for(let request of allRequest) { %>
+            <div class="hospital_request">
+              <h5><%= request.hospital_name %></h5>
+              <p>Requesting : <%=request.what_needed%></p>
+              <% if(request.HLA_type) { %>
+                <p>HLA Type: <%=request.HLA_type%></p>
+                <% } %>
+                <% if(request.blood_group) { %>
+                <p>Blood Group: <%=request.blood_group%></p>
+                <% } %>
+                <div class="button_container">
+                <form method="get" action="/org/orgdashboard/request/<%=request._id%>">
+                  <button class="see_request_btn">See Requests</button>
+                  </form>
+                  <form method="post" action="/org/orgdashboard/request/<%=request._id%>?_method=DELETE">
+                  <button class="decline_button">Decline</button>
+                  </form>
+                  </div>
+              </div> <!--Hospital Request-->
         <% } %>
-    </ul>
-  </body>
+      </div>
+  </div>
+</div>
+<!--Organisation Done-->>

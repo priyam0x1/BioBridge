@@ -1,0 +1,62 @@
+<% layout("layouts/boilerplate.ejs") %>
+<link rel="stylesheet" href="/css/hospitalRequest.css" />
+
+<div class="request_container">
+  <div class="request_card">
+
+    <div class="card_header">
+      <h2><%= request.hospital_name %></h2>
+      <span class="badge"><%= request.urgency %></span>
+    </div>
+
+    <div class="detail">
+      <span>Hospital ID</span>
+      <p><%= request.hospital_id %></p>
+    </div>
+
+    <div class="detail">
+      <span>Contact Person</span>
+      <p><%= request.contact_person %></p>
+    </div>
+
+    <div class="detail">
+      <span>Contact</span>
+      <p><%= request.contact_detail %></p>
+    </div>
+
+    <div class="detail">
+      <span>Requirement</span>
+      <p><%= request.what_needed %></p>
+    </div>
+
+    <% if(request.HLA_type){ %>
+    <div class="detail">
+      <span>HLA Type</span>
+      <p><%= request.HLA_type %></p>
+    </div>
+    <% } %>
+
+    <% if(request.blood_group){ %>
+    <div class="detail">
+      <span>Blood Group</span>
+      <p><%= request.blood_group %></p>
+    </div>
+    <% } %>
+
+    <div class="detail">
+      <span>Patient Ref</span>
+      <p><%= request.patient_ref %></p>
+    </div>
+
+    <div class="detail">
+      <span>Needed By</span>
+      <p><%= request.needed_by %></p>
+    </div>
+
+    <div class="note">
+      <h4>Organisation Note</h4>
+      <p><%= request.org_note %></p>
+    </div>
+
+  </div>
+</div>
