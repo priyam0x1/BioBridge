@@ -1,18 +1,55 @@
 <% layout("layouts/boilerplate.ejs") %>
-<body>
-  <form method="POST" action="/lab/<%=donor._id%>?_method=PUT">
-    <input value="<%=donor.name%>" readonly />
-    <input value="<%=donor.sample_id%>" readonly />
-    <h1>Enter Test Result</h1>
-    <input placeholder="HLA Typing" name="donor[HLA_type]" />
-    <select name="donor[blood_grp]">
-      <option>Not Provided</option>
-      <option>A+</option>
-      <option>B+</option>
-      <option>O+</option>
-      <option>O-</option>
-    </select>
-    <br />
-    <button type="submit">Enter</button>
-  </form>
-</body>
+<link rel="stylesheet" href="/css/testResult.css" />
+<div class="test_result_form_container">
+  <div class="test_result_card">
+    <form method="POST" action="/lab/<%=donor._id%>?_method=PUT">
+      <h4>Enter Test Result</h4>
+      <h6>Donor Id : <%=donor.id%></h6>
+      <h6>Donor Name : <%=donor.name%></h6>
+      <div class="double_input">
+        <div class="lab_input">
+          <label for="hla_type">HLA Type</label>
+          <input
+            id="hla_type"
+            placeholder="e.g. HLA-A*02:01"
+            name="donor[HLA_type]"
+            required
+          />
+        </div>
+        <!--Lab Input-->
+        <div class="lab_input">
+          <label for="blood_grp">Blood Group</label>
+          <select id="blood_grp" name="donor[blood_grp]">
+            <option>Not Provided</option>
+            <option>A+</option>
+            <option>A-</option>
+            <option>B+</option>
+            <option>B-</option>
+            <option>AB+</option>
+            <option>AB-</option>
+            <option>O+</option>
+            <option>O-</option>
+            <option>Bombay Blood Group (hh)</option>
+            <option>Rh-null</option>
+            <option>Other Rare Blood Group</option>
+          </select>
+        </div>
+        <!--Lab Input-->
+      </div>
+      <!--Single Line For One/Two Input-->
+      <div class="lab_input">
+        <label for="org_note">Notes For Organisation</label>
+        <textarea
+          name="donor[note_org]"
+          id="org_note"
+          placeholder="Notes For Organisation"
+        ></textarea>
+      </div>
+      <!--Lab Input-->
+      <p>These results are written directly to the donor's registry record.</p>
+      <button id="button" type="submit">Submit to registry</button>
+    </form>
+  </div>
+</div>
+<!--test_result_card-->
+<!--Test result form container-->

@@ -1,10 +1,28 @@
 <% layout("layouts/boilerplate.ejs") %>
-  <body>
+<link rel="stylesheet" href="/css/searchResult.css" />
+<div class="search_result_container">
+  <!-- ===========================================Back To Laboratory Dashboard=========================== -->
+  <div class="back_to_labDashboard">
+  <form method="GET" action="/lab/labdashboard">
+    <button class="back_to_labDashboard_btn">&#8592;Back to dashbaord</button>
+  </form>
+</div>
     <% if(allDonor.length === 0){ %>
          <h1>No results found for <%= search %></h1>
     <% } else { %>
     <h1>Search Result</h1>
     <% for (let donor of allDonor) { %>
-    <h2><%= donor.name %></h2>
+    <div class="donor_detail">
+      <div><%=donor.name%></div>
+      <div><%=donor.donor_id.slice(0, 5)%></div>
+      <div><%=donor.sample_id.slice(0, 5)%></div>
+      <div><%=donor.received_date.toLocaleDateString()%></div>
+      <form method="get" action="/lab/<%=donor._id%>/testresult">
+        <button class="test_btn">Enter Test Result</button>
+      </form>
+      <form method="post" action="/lab/labdashboard/<%=donor._id%>?_method=DELETE">
+        <button class="delete_btn">Delete Donor</button>
+      </form>
+      </div>
     <% } } %>
-  </body>
+</div> <!--Search Result Container-->
