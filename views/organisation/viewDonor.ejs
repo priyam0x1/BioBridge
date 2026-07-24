@@ -1,0 +1,87 @@
+<% layout("layouts/boilerplate.ejs") %>
+<link rel="stylesheet" href="/css/viewDonor.css" />
+<div class="view_container">
+  <div class="view_card">
+    <div class="card_header">
+      <div>
+        <h2><%= donor.name %></h2>
+        <p>Donor Profile</p>
+      </div>
+
+      <span class="status"> <%= donor.status %> </span>
+    </div>
+
+    <div class="details">
+      <div class="detail">
+        <span>Donor ID</span>
+        <p><%= donor.donor_id %></p>
+      </div>
+
+      <div class="detail">
+        <span>Sample ID</span>
+        <p><%= donor.sample_id %></p>
+      </div>
+
+      <div class="detail">
+        <span>Date of Birth</span>
+        <p><%= donor.dob.toLocaleDateString() %></p>
+      </div>
+
+      <div class="detail">
+        <span>Phone</span>
+        <p><%= donor.phone %></p>
+      </div>
+
+      <div class="detail">
+        <span>Email</span>
+        <p><%= donor.email || "-" %></p>
+      </div>
+
+      <div class="detail">
+        <span>Address</span>
+        <p><%= donor.address || "-" %></p>
+      </div>
+
+      <div class="detail">
+        <span>Gender</span>
+        <p><%= donor.gender %></p>
+      </div>
+
+      <div class="detail">
+        <span>Blood Group</span>
+        <p><%= donor.blood_grp %></p>
+      </div>
+
+      <div class="detail">
+        <span>HLA Type</span>
+        <p><%= donor.HLA_type || "Not Available" %></p>
+      </div>
+
+      <div class="detail">
+        <span>Medical Condition</span>
+        <p><%= donor.med_con || "None" %></p>
+      </div>
+
+      <div class="detail">
+        <span>Sample Received</span>
+        <p>
+          <%= donor.received_date ? donor.received_date.toLocaleDateString() :
+          "-" %>
+        </p>
+      </div>
+
+      <div class="detail">
+        <span>Test Date</span>
+        <p>
+          <%= donor.test_date ? donor.test_date.toLocaleDateString() : "-" %>
+        </p>
+      </div>
+    </div>
+
+    <div class="note_box">
+      <h3>Organisation Note</h3>
+
+      <p><%= donor.note_org || "No note added." %></p>
+    </div>
+  </div>
+</div>
