@@ -72,6 +72,8 @@ app.get("/public/register", (req, res) => {
 app.post("/org", async (req, res) => {
   const donor = req.body.donor;
   donor.sample_id = uuidv4();
+  donor.donor_id = uuidv4();
+  donor.received_date = new Date();
   const newDonor = new Donor(donor);
   await newDonor.save();
   res.render("public/thankDonor.ejs", { newDonor, currentPage: "donor" });
@@ -110,6 +112,20 @@ app.get("/lab/labdashboard", async (req, res) => {
   res.render("laboratory/labDashboard.ejs", { allDonor, currentPage: "lab" });
 });
 
+// search option laboratory
+app.get("/lab/labdashboard/search", async (req, res) => {
+  const { search } = req.query;
+  const allDonor = await Donor.find({
+    $or: [{ name: search }, { blood_grp: search }, { sample_id: search }],
+  });
+
+  res.render("laboratory/searchResult.ejs", {
+    allDonor,
+    search,
+    currentPage: "lab",
+  });
+});
+
 // Lab test result enter form
 app.get("/lab/:id/testresult", async (req, res) => {
   const donor = await Donor.findById(req.params.id);
@@ -119,9 +135,19 @@ app.get("/lab/:id/testresult", async (req, res) => {
 // Result enter on database
 app.put("/lab/:id", async (req, res) => {
   const { id } = req.params;
-  await Donor.findByIdAndUpdate(id, { ...req.body.donor });
-  const donor = await Donor.findById(id);
+  console.log(id);
+  let HLA_type = req.body.donor;
+  console.log(HLA_type);
+  // await Donor.findByIdAndUpdate(id, { ...req.body.donor });
+  // const donor = await Donor.findById(id);
   res.send("Laboratoryk kiba thank you type r msg ata dekhaba lagbo");
+});
+
+// delete route individual
+app.delete("/lab/labdashboard/:id", async (req, res) => {
+  const deletedDonor = await Donor.findByIdAndDelete(req.params.id);
+  console.log(deletedDonor);
+  res.redirect("/lab/labdashboard");
 });
 
 // =================================Laboratory Route - To Here ==================================
@@ -168,11 +194,11 @@ app.get("/org/:id", async (req, res) => {
 });
 
 // delete route individual
-app.delete("/org/:id", async (req, res) => {
-  const deletedDonor = await Donor.findByIdAndDelete(req.params.id);
-  console.log(deletedDonor);
-  res.redirect("/org/orgdashboard");
-});
+// app.delete("/org/:id", async (req, res) => {
+//   const deletedDonor = await Donor.findByIdAndDelete(req.params.id);
+//   console.log(deletedDonor);
+//   res.redirect("/org/orgdashboard");
+// });
 
 // ===================================Organisation Route - To Here ==================================
 
