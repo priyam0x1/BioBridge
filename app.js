@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const mongooose = require("mongoose");
 const Donor = require("./models/donor.js");
+const Request = require("./models/request.js");
 const { v4: uuidv4 } = require("uuid");
 const path = require("path");
 const methodOverride = require("method-override");
@@ -109,14 +110,27 @@ app.get("/lab/lablogin", async (req, res) => {
 
 // Lab Dashboard
 app.get("/lab/labdashboard", async (req, res) => {
+  const pendingDonors = await Donor.countDocuments({
+    status: "Pending",
+  });
+  const submittedDonors = await Donor.countDocuments({
+    status: "Submitted",
+  });
   const allDonor = await Donor.find({});
-  res.render("laboratory/labDashboard.ejs", { allDonor, currentPage: "lab" });
+  res.render("laboratory/labDashboard.ejs", {
+    allDonor,
+    currentPage: "lab",
+    pendingDonors,
+    submittedDonors,
+  });
 });
 
 // search option laboratory
 app.get("/lab/labdashboard/search", async (req, res) => {
   const { search } = req.query;
   const allDonor = await Donor.find({
+    status: "Pending",
+
     $or: [{ name: search }, { blood_grp: search }, { sample_id: search }],
   });
 
@@ -136,7 +150,11 @@ app.get("/lab/:id/testresult", async (req, res) => {
 // Result enter on database
 app.put("/lab/:id", async (req, res) => {
   const { id } = req.params;
-  await Donor.findByIdAndUpdate(id, { ...req.body.donor, status: "submitted" });
+  await Donor.findByIdAndUpdate(id, {
+    ...req.body.donor,
+    status: "Submitted",
+    test_date: Date.now(),
+  });
   const donor = await Donor.findById(id);
   console.log(donor);
   res.redirect("/lab/labDashboard");
@@ -159,14 +177,24 @@ app.get("/org/orglogin", (req, res) => {
 
 // organisation dashboard
 app.get("/org/orgdashboard", async (req, res) => {
+  const totalDonors = await Donor.countDocuments({});
+  const totalRequest = await Request.countDocuments({});
   const allDonor = await Donor.find({});
-  res.render("organisation/orgDashboard.ejs", { allDonor, currentPage: "org" });
+  const allRequest = await Request.find({});
+  res.render("organisation/orgDashboard.ejs", {
+    allDonor,
+    currentPage: "org",
+    totalDonors,
+    totalRequest,
+    allRequest,
+  });
 });
 
 // search option organisation
-app.get("/org/search", async (req, res) => {
+app.get("/org/orgdashboard/search", async (req, res) => {
   const { search } = req.query;
   const allDonor = await Donor.find({
+    status: "Submitted",
     $or: [
       { name: search },
       { blood_grp: search },
@@ -175,6 +203,7 @@ app.get("/org/search", async (req, res) => {
       { address: search },
       { HLA_type: search },
       { sample_id: search },
+      { donor_id: search },
     ],
   });
 
@@ -186,10 +215,29 @@ app.get("/org/search", async (req, res) => {
 });
 
 // show route individual
-app.get("/org/:id", async (req, res) => {
-  let id = req.params.id;
-  const donor = await Donor.findById(id);
-  res.render("organisation/show.ejs", { donor, currentPage: "org" });
+app.get("/org/orgdashboard/:id", async (req, res) => {
+  const donor = await Donor.findById(req.params.id);
+  res.render("organisation/viewDonor.ejs", { donor, currentPage: "org" });
+});
+
+app.get("/org/orgdashboard/request", (req, res) => {
+  res.send("Baba Tumi");
+});
+
+// Hospital request view individual
+app.get("/org/orgdashboard/request/:id", async (req, res) => {
+  const request = await Request.findById(req.params.id);
+  res.render("organisation/hospitalRequest.ejs", {
+    request,
+    currentPage: "org",
+  });
+});
+
+// Decline Request Hospital
+app.delete("/org/orgdashboard/request/:id", async (req, res) => {
+  const declineReq = await Request.findByIdAndDelete(req.params.id);
+  console.log(declineReq);
+  res.redirect("/org/orgdashboard");
 });
 
 // delete route individual
