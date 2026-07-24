@@ -1,0 +1,51 @@
+.search_result_container {
+  margin-top: 7vh;
+  margin-left: 7.5rem;
+  margin-right: 7.5rem;
+}
+
+.back_to_labDashboard_btn {
+  padding: 8px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  background: transparent;
+  border: 1px solid #d8ded9;
+  border-radius: 8px;
+  color: #1c1b1f;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  margin-bottom: 2rem;
+}
+
+.back_to_labDashboard_btn:hover {
+  border-color: #1c1b1f;
+}
+
+.donor_detail {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.3fr 1.3fr 0.6fr;
+  align-items: center;
+  padding: 1rem;
+  column-gap: 1rem;
+  border: 1px solid #d8ded9;
+  border-radius: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.test_btn {
+  border-radius: 8px;
+  border: none;
+  background-color: #12746b;
+  color: #fff;
+  font-size: 0.88rem;
+  padding: 0.4rem;
+}
+
+.delete_btn {
+  border-radius: 8px;
+  border: none;
+  background-color: rgb(77, 74, 74);
+  color: white;
+  font-size: 12.48px;
+  padding: 0.2rem;
+}

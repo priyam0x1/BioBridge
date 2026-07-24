@@ -1,0 +1,76 @@
+.test_result_form_container {
+  margin-top: 7vh;
+  margin-left: 7.5rem;
+  margin-right: 7.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.test_result_card {
+  border: 1px solid #d8ded9;
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+h4,
+h6,
+p {
+  margin-left: 0.6rem;
+}
+
+p {
+  color: #5b645f;
+}
+
+label {
+  font-size: 0.84rem;
+  font-weight: 600;
+  margin-left: 0.8rem;
+}
+
+.lab_input {
+  display: flex;
+  flex-direction: column;
+}
+
+.double_input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+#hla_type,
+#blood_grp {
+  width: 17.5rem;
+  border: 1px solid #d8ded9;
+  border-radius: 14px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+#org_note {
+  width: 36rem;
+  border: 1px solid #d8ded9;
+  border-radius: 14px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+
+#button {
+  border: none;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #12746b;
+  color: #fff;
+  padding: 0.8rem;
+  width: 100%;
+  margin-top: 1rem;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+#button:hover {
+  background-color: #0b574f;
+}
