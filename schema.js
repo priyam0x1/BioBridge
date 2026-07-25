@@ -29,3 +29,35 @@ module.exports.donorSchema = Joi.object({
     note_org: Joi.string().allow(""),
   }).required(),
 });
+
+module.exports.requestSchema = Joi.object({
+  request: Joi.object({
+    hospital_name: Joi.string()
+      .pattern(/^[A-Za-z\s]+$/)
+      .required()
+      .messages({
+        "string.pattern.base":
+          "Hospital name can contain only letters and spaces.",
+      }),
+
+    hospital_id: Joi.string(),
+
+    contact_person: Joi.string()
+      .pattern(/^[A-Za-z.\s]+$/) // Dr. Priyam Pratim ke liye '.' allow kiya
+      .required(),
+
+    contact_detail: Joi.alternatives()
+      .try(Joi.string().pattern(/^[6-9]\d{9}$/), Joi.string().email())
+      .required(),
+
+    what_needed: Joi.string(),
+    typing: Joi.string(),
+    patient_ref: Joi.string(),
+    urgency: Joi.string(),
+    needed_by: Joi.string(),
+  }).required(),
+
+  org: Joi.object({
+    note: Joi.string().allow(""),
+  }).optional(),
+});
