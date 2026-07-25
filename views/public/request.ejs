@@ -24,14 +24,18 @@
           <input
             type="text"
             placeholder="e.g. Guwahati Medical College"
-            name="hospitalName"
+            name="request[hospital_name]"
             required
           />
         </div>
 
         <div class="hospital-field">
           <label>Registered hospital ID <span>(if known)</span></label>
-          <input type="text" placeholder="e.g. HSP-2291" name="hospitalId" />
+          <input
+            type="text"
+            placeholder="e.g. HSP-2291"
+            name="request[hospital_id]"
+          />
         </div>
       </div>
 
@@ -41,7 +45,7 @@
           <input
             type="text"
             placeholder="Dr. name"
-            name="contactPerson"
+            name="request[contact_person]"
             required
           />
         </div>
@@ -51,7 +55,7 @@
           <input
             type="text"
             placeholder="Direct line for our team to reach you"
-            name="contact"
+            name="request[contact_detail]"
             required
           />
         </div>
@@ -61,9 +65,8 @@
         <div class="hospital-field">
           <label>What's needed</label>
 
-          <select name="requiredDonation">
+          <select name="request[what_needed]">
             <option>Stem cell donor</option>
-            <option>Bone marrow donor</option>
             <option>Blood donor</option>
           </select>
         </div>
@@ -74,7 +77,7 @@
           <input
             type="text"
             placeholder="e.g. O negative, or HLA A*02, B*07."
-            name="bloodGroup"
+            name="request[typing]"
           />
         </div>
       </div>
@@ -88,7 +91,7 @@
         <input
           type="text"
           placeholder="e.g. PT-2291"
-          name="patientReference"
+          name="request[patient_ref]"
           required
         />
       </div>
@@ -97,7 +100,7 @@
         <div class="hospital-field">
           <label>Urgency</label>
 
-          <select name="urgency">
+          <select name="request[urgency]">
             <option>Urgent — within days</option>
             <option>Within 2 weeks</option>
             <option>Within 1 month</option>
@@ -108,7 +111,7 @@
         <div class="hospital-field">
           <label>Needed by</label>
 
-          <input type="date" name="neededBy" />
+          <input type="date" name="request[needed_by]" />
         </div>
       </div>
 
@@ -121,7 +124,7 @@
         <textarea
           rows="4"
           placeholder="Anything that helps us prioritise or search accurately"
-          name="notes"
+          name="org[note]"
         ></textarea>
       </div>
 
