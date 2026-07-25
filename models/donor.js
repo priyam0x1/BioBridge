@@ -5,6 +5,7 @@ const donorSchema = new Schema({
   name: {
     type: String,
     required: true,
+    match: /^[A-Za-z ]+$/,
   },
   dob: {
     type: Date,
@@ -13,6 +14,7 @@ const donorSchema = new Schema({
   phone: {
     type: String,
     required: true,
+    match: [/^\d{10}$/, "Phone number must be exactly 10 digits."],
   },
   email: {
     type: String,
