@@ -5,6 +5,7 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const ExpressError = require("../utils/ExpressError.js");
 const { donorSchema, requestSchema } = require("../schema.js");
 const Donor = require("../models/donor.js");
+const Request = require("../models/request.js");
 
 const validateDonor = (req, res, next) => {
   let { error } = donorSchema.validate(req.body);
@@ -17,6 +18,7 @@ const validateDonor = (req, res, next) => {
 
 const validateRequest = (req, res, next) => {
   let { error } = requestSchema.validate(req.body);
+  console.log(error);
   if (error) {
     throw new ExpressError(400, error.details[0].message);
   } else {
@@ -66,7 +68,6 @@ router.post(
   validateRequest,
   wrapAsync(async (req, res) => {
     const request = req.body.request;
-    console.log(req.body);
     if (request.what_needed === "Blood donor") {
       request.blood_group = request.typing;
     } else if (request.what_needed === "Stem cell donor") {
@@ -76,7 +77,7 @@ router.post(
     const newRequest = new Request(request);
     await newRequest.save();
 
-    res.render("public/thankHospital.ejs", { currentPage: "public" });
+    res.render("public/thankHospital.ejs", { currentPage: "hospital" });
   }),
 );
 
