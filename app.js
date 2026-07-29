@@ -63,6 +63,40 @@ app.get("/", (req, res) => {
   res.send("Hi i am root");
 });
 
+// Storing fake user
+// app.get("/demouser", async (req, res) => {
+//   try {
+//     await User.register(
+//       new User({
+//         username: "LAB-001",
+//         role: "lab",
+//       }),
+//       "hello",
+//     );
+
+//     await User.register(
+//       new User({
+//         username: "HOSP-001",
+//         role: "hospital",
+//       }),
+//       "hello",
+//     );
+
+//     await User.register(
+//       new User({
+//         username: "ORG-001",
+//         role: "organisation",
+//       }),
+//       "hello",
+//     );
+
+//     res.send("3 demo users created successfully!");
+//   } catch (err) {
+//     console.log(err);
+//     res.send(err.message);
+//   }
+// });
+
 // Error handling for invalid route
 app.use((req, res, next) => {
   next(new ExpressError(404, "Page Not Found!"));
