@@ -1,0 +1,73 @@
+const sampleRequest = [
+  {
+    hospital_name: "Apollo Hospital",
+    hospital_id: "HSP001",
+    contact_person: "Dr Ananya Sharma",
+    contact_detail: "9876543210",
+    what_needed: "Stem Cell Donor",
+    HLA_type: "A*02:01, B*15:01, DRB1*04:01",
+    blood_group: "A+",
+    patient_ref: "PAT001",
+    urgency: "Urgent — within days",
+    needed_by: "2026-07-28",
+    org_note:
+      "Patient requires an immediate stem cell transplant due to acute leukemia.",
+  },
+  {
+    hospital_name: "Fortis Hospital",
+    hospital_id: "HSP002",
+    contact_person: "Dr Rahul Verma",
+    contact_detail: "9123456780",
+    what_needed: "Blood Donor",
+    HLA_type: "",
+    blood_group: "O-",
+    patient_ref: "PAT002",
+    urgency: "Within 2 weeks",
+    needed_by: "2026-08-08",
+    org_note:
+      "Rare O- blood units needed before the scheduled treatment cycle.",
+  },
+  {
+    hospital_name: "Max Super Speciality Hospital",
+    hospital_id: "HSP003",
+    contact_person: "Dr Neha Kapoor",
+    contact_detail: "9988776655",
+    what_needed: "Stem Cell Donor",
+    HLA_type: "A*24:02, B*35:01, DRB1*15:01",
+    blood_group: "B+",
+    patient_ref: "PAT003",
+    urgency: "Within 1 month",
+    needed_by: "2026-08-25",
+    org_note:
+      "Searching for a compatible donor before the patient's transplant window.",
+  },
+  {
+    hospital_name: "AIIMS Delhi",
+    hospital_id: "HSP004",
+    contact_person: "Dr Vikram Singh",
+    contact_detail: "9811122233",
+    what_needed: "Blood Donor",
+    HLA_type: "",
+    blood_group: "AB+",
+    patient_ref: "PAT004",
+    urgency: "Routine",
+    needed_by: "2026-09-15",
+    org_note: "Blood required for a planned elective surgery.",
+  },
+  {
+    hospital_name: "Narayana Health",
+    hospital_id: "HSP005",
+    contact_person: "Dr Sneha Das",
+    contact_detail: "9090909090",
+    what_needed: "Stem Cell Donor",
+    HLA_type: "A*01:01, B*08:01, DRB1*03:01",
+    blood_group: "O+",
+    patient_ref: "PAT005",
+    urgency: "Urgent — within days",
+    needed_by: "2026-07-30",
+    org_note:
+      "High-priority transplant case requiring the earliest possible donor match.",
+  },
+];
+
+module.exports = { requestData: sampleRequest };
