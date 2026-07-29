@@ -7,14 +7,19 @@
     <p class="org-login-second-msg">
       For BioBridge staff managing donors, results and hospital requests.
     </p>
-    <form method="get" action="/org/orgdashboard">
+    <form method="post" action="/org/orglogin">
       <div class="org_input">
-        <label for="staffEmail">Staff email</label>
-        <input id="staffEmail" type="text" placeholder="LAB-0032" />
+        <label for="staffEmail">Organisation ID</label>
+        <input id="orgId" name="username" type="text" placeholder="ORG-003" />
       </div>
       <div class="org_input">
         <label for="password">Password</label>
-        <input id="password" type="password" placeholder="Password" />
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Password"
+        />
       </div>
       <button id="button">Log in</button>
     </form>

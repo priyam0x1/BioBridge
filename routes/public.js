@@ -6,6 +6,7 @@ const ExpressError = require("../utils/ExpressError.js");
 const { donorSchema, requestSchema } = require("../schema.js");
 const Donor = require("../models/donor.js");
 const Request = require("../models/request.js");
+const passport = require("passport");
 
 const validateDonor = (req, res, next) => {
   let { error } = donorSchema.validate(req.body);
@@ -42,9 +43,19 @@ router.get("/hospitallogin", (req, res) => {
 });
 
 // Hospital Form Request
-router.get("/request", (req, res) => {
-  res.render("public/request.ejs", { currentPage: "hospital" });
-});
+router.post(
+  "/hospitallogin",
+  passport.authenticate("local", { failureRedirect: "/public/hospitallogin" }),
+  (req, res, next) => {
+    if (req.user.role !== "hospital") {
+      return req.logout((err) => {
+        if (err) return next(err);
+        res.redirect("/public/hospitallogin");
+      });
+    }
+    res.render("public/request.ejs", { currentPage: "hospital" });
+  },
+);
 
 // register form - donor submit
 router.post(

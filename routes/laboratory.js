@@ -4,18 +4,47 @@ const Donor = require("../models/donor.js");
 const methodOverride = require("method-override");
 const wrapAsync = require("../utils/wrapAsync.js");
 const ExpressError = require("../utils/ExpressError.js");
+const passport = require("passport");
 
-// Lab Login
-router.get(
+const isLoggedIn = (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    return res.redirect("/lab/lablogin");
+  }
+
+  if (req.user.role !== "lab") {
+    return res.redirect("/lab/lablogin");
+  }
+
+  next();
+};
+
+// Lab Login Form
+router.get("/lablogin", (req, res) => {
+  res.render("laboratory/labLogin.ejs", { currentPage: "lab" });
+});
+
+// Lab Login Access
+router.post(
   "/lablogin",
-  wrapAsync(async (req, res) => {
-    res.render("laboratory/labLogin.ejs", { currentPage: "lab" });
+  passport.authenticate("local", {
+    failureRedirect: "/lab/lablogin",
   }),
+  (req, res, next) => {
+    if (req.user.role !== "lab") {
+      return req.logout((err) => {
+        if (err) return next(err);
+        res.redirect("/lab/lablogin");
+      });
+    }
+
+    res.redirect("/lab/labdashboard");
+  },
 );
 
 // Lab Dashboard
 router.get(
   "/labdashboard",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     const pendingDonors = await Donor.countDocuments({
       status: "Pending",

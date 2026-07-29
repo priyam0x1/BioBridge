@@ -7,16 +7,28 @@
     <p class="lab-login-second-msg">
       Restricted to partner laboratories processing BioBridge samples.
     </p>
-    <form method="get" action="/lab/labdashboard">
+    <form method="post" action="/lab/lablogin">
       <div class="lab_input">
         <label for="labID">Laboratory ID</label>
-        <input id="labID" type="text" placeholder="LAB-0032" />
+        <input
+          id="labID"
+          type="text"
+          name="username"
+          placeholder="LAB-0032"
+          required
+        />
       </div>
       <div class="lab_input">
         <label for="password">Password</label>
-        <input id="password" type="password" placeholder="Password" />
+        <input
+          id="password"
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
       </div>
-      <button id="button">Log in</button>
+      <button id="button" type="submit">Log in</button>
     </form>
     <p class="lab-login-last-msg">
       Access is issued by BioBridge after laboratory accreditation is verified.

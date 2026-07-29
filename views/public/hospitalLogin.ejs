@@ -7,14 +7,19 @@
     <p class="lab-login-second-msg">
       Restricted to partner hospitals submitting donor match requests.
     </p>
-    <form method="get" action="/public/request">
+    <form method="post" action="/public/hospitallogin">
       <div class="lab_input">
         <label for="labID">Hospital ID</label>
-        <input id="labID" type="text" placeholder="LAB-0032" />
+        <input id="labID" name="username" type="text" placeholder="HOSP-0032" />
       </div>
       <div class="lab_input">
         <label for="password">Password</label>
-        <input id="password" type="password" placeholder="Password" />
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Password"
+        />
       </div>
       <button id="button">Log in</button>
     </form>

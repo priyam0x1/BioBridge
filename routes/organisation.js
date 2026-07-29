@@ -6,15 +6,45 @@ const Request = require("../models/request.js");
 const wrapAsync = require("../utils/wrapAsync.js");
 const ExpressError = require("../utils/ExpressError.js");
 const { donorSchema, requestSchema } = require("../schema.js");
+const passport = require("passport");
 
-// organisation dashboard
+const isLoggedIn = (req, res, next) => {
+  if (!req.isAuthenticated()) {
+    return res.redirect("/org/orglogin");
+  }
+
+  if (req.user.role !== "organisation") {
+    return res.redirect("/org/orglogin");
+  }
+
+  next();
+};
+
+// organisation login form
 router.get("/orglogin", (req, res) => {
   res.render("organisation/orgLogin.ejs", { currentPage: "org" });
 });
 
+// Organisation login access
+router.post(
+  "/orglogin",
+  passport.authenticate("local", { failureRedirect: "/org/orglogin" }),
+  (req, res, next) => {
+    if (req.user.role !== "organisation") {
+      return req.logout((err) => {
+        if (err) return next(err);
+        res.redirect("/org/orglogin");
+      });
+    }
+
+    res.redirect("/org/orgdashboard");
+  },
+);
+
 // organisation dashboard
 router.get(
   "/orgdashboard",
+  isLoggedIn,
   wrapAsync(async (req, res) => {
     const totalDonors = await Donor.countDocuments({});
     const totalRequest = await Request.countDocuments({});
