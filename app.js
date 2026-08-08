@@ -75,7 +75,7 @@ app.use("/org", organisation);
 
 // Root Route==========================================================
 app.get("/", (req, res) => {
-  res.send("Hi i am root");
+  res.redirect("/public");
 });
 
 // Storing fake user
