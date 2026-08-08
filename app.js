@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config({ quiet: true });
+}
+
 const express = require("express");
 const mongooose = require("mongoose");
 const Donor = require("./models/donor.js");
@@ -10,6 +14,7 @@ const wrapAsync = require("./utils/wrapAsync.js");
 const ExpressError = require("./utils/ExpressError.js");
 const { donorSchema, requestSchema } = require("./schema.js");
 const session = require("express-session");
+const MongoStore = require("connect-mongo").default;
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
@@ -20,7 +25,7 @@ const public = require("./routes/public.js");
 const organisation = require("./routes/organisation.js");
 const laboratory = require("./routes/laboratory.js");
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/bioBridge";
+const MONGO_URL = process.env.ATLASDB_URL;
 main()
   .then(() => {
     console.log("Connected to DB");
@@ -40,8 +45,18 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 
+const store = MongoStore.create({
+  mongoUrl: MONGO_URL,
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", (err) => {
+  console.log("Error in MongoSession Store", err);
+});
+
 const sessionOptions = {
-  secret: "mysupersecretcode",
+  store,
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: false,
 };
